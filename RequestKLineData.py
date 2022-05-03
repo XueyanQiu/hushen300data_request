@@ -73,7 +73,7 @@ def catch_special_column(data: list):
     return res_list
 
 
-# 初次运行，获取全部历史数据，并排序
+# 初次运行，获取全部历史数据，并排序，最早抓到2015-02-10，更早的抓不到北向资金的数据了
 def get_all_history_data():
     first_loop = True
     do_while = True
@@ -82,7 +82,7 @@ def get_all_history_data():
         res_list = grab_history_data(start_time)
         res_list_2 = catch_special_column(res_list)
         # 2005-01-04为抓取的截止时间
-        if int(res_list[0]['time']) <= 1104768000 or len(res_list) < 90:
+        if int(res_list[0]['time']) <= 1423497600 or len(res_list) < 90:
             do_while = False
         if first_loop:
             first_loop = False
